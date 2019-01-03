@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 class AbsoluteTest {
 
 
-   @Test
+    @Test
     void positiveZero(){
         assertEquals(0,Absolute.absoluteValueOf(0));
     }
