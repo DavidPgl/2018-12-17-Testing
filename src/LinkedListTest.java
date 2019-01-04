@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedListTest {
-    LinkedList linkedList;
+    private LinkedList linkedList;
     @BeforeEach
     void setUp() {
         linkedList = new LinkedList();
@@ -13,6 +13,12 @@ class LinkedListTest {
     @Test
     void deleteNode() {
         linkedList.add(new Node());
+        linkedList.delete();
+        assertEquals(0, linkedList.size());
+    }
+
+    @Test
+    void deleteNothing() {
         linkedList.delete();
         assertEquals(0, linkedList.size());
     }
@@ -28,6 +34,12 @@ class LinkedListTest {
         Node node = new Node();
         linkedList.add(node);
         assertEquals(node, linkedList.getLast());
+    }
+
+    @Test
+    void getNothing() {
+        linkedList = new LinkedList();
+        assertEquals(null, linkedList.getLast());
     }
 
     @Test
