@@ -1,3 +1,5 @@
+package list;
+
 public interface List {
     void delete();
 

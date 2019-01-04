@@ -1,3 +1,5 @@
+package list;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +14,7 @@ class LinkedListTest {
 
     @Test
     void deleteNode() {
-        linkedList.add(new Node());
+        linkedList.add(new Node("test"));
         linkedList.delete();
         assertEquals(0, linkedList.size());
     }
@@ -25,13 +27,13 @@ class LinkedListTest {
 
     @Test
     void addNode() {
-        linkedList.add(new Node());
+        linkedList.add(new Node("test"));
         assertEquals(1, linkedList.size());
     }
 
     @Test
     void getNode() {
-        Node node = new Node();
+        Node node = new Node("test");
         linkedList.add(node);
         assertEquals(node, linkedList.getLast());
     }
@@ -39,15 +41,15 @@ class LinkedListTest {
     @Test
     void getNothing() {
         linkedList = new LinkedList();
-        assertEquals(null, linkedList.getLast());
+        assertNull(linkedList.getLast());
     }
 
     @Test
     void reverseList() {
         linkedList = new LinkedList();
-        Node first = new Node();
-        Node middle = new Node();
-        Node last = new Node();
+        Node first = new Node(1);
+        Node middle = new Node(2);
+        Node last = new Node(3);
         linkedList.add(first);
         linkedList.add(middle);
         linkedList.add(last);

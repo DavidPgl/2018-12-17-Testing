@@ -1,3 +1,5 @@
+package absolute;
+
 class Absolute {
     // Code for White-box test exercise
     static int absoluteValueOf(int x) {
