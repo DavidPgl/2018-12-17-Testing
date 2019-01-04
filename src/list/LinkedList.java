@@ -1,20 +1,47 @@
 package list;
 
-class LinkedList{
-    void add(Node node) {
+class LinkedList implements List {
+
+    private Node first = null;
+
+    @Override
+    public void add(String data) {
+        this.first = new Node(data, this.first);
     }
 
-    void delete() {
+    @Override
+    public boolean delete(String data) {
+        Node currentNode = getFirst();
+        Node lastNode;
+        if(currentNode.data().equals(data)) {
+            first = currentNode.next();
+            return true;
+        }
+        lastNode = currentNode;
+        while ((currentNode = currentNode.next()) != null) {
+            if (currentNode.data().equals(data)) {
+                lastNode.setNext(currentNode.next());
+                return true;
+            }
+            lastNode = currentNode;
+        }
+        return false;
     }
 
-    int size() {
-        return 1337;
+    @Override
+    public Node getFirst() {
+        return this.first;
     }
 
-    Node getLast() {
-        return null;
+    @Override
+    public void reverse() {
+        Node tempFirst = new Node(this.first.data(), null);
+        Node currentNode = this.first;
+        while ((currentNode = currentNode.next()) != null){
+            tempFirst = new Node(currentNode.data(),tempFirst);
+        }
+        this.first = tempFirst;
     }
 
-    void reverse() {
-    }
+
 }

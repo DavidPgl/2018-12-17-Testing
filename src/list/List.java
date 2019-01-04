@@ -1,23 +1,13 @@
 package list;
 
-public interface List {
-    void delete();
+interface List {
+    boolean delete(String data);
 
-    int size();
-
-    void add();
-
-    Node getLast();
-
-    void reverse();
-    /*------------------------------------------------------------------------------------------------------------*/
-    //Maybes
-
-    void delete(int index);
-
-    void add(int index);
+    void add(String data);
 
     Node getFirst();
-    Node get(int index);
+
+    void reverse();
+
 
 }
