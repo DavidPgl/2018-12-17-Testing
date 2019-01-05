@@ -7,7 +7,7 @@ interface List {
 
     Node getFirst();
 
-    void reverse();
+    void reverse() throws LinkedListException;
 
 
 }

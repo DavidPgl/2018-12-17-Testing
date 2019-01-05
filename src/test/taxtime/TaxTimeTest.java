@@ -24,8 +24,7 @@ public class TaxTimeTest {
 	public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 	
 	// ------ https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println ------
-	// also tried this, but for our use it was inappropriate because the TaxTime is printing not only answers but questions to the console
-	// didnt really need it anyway
+	// first approach
 	//private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	//private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	//private final PrintStream originalOut = System.out;
@@ -42,7 +41,6 @@ public class TaxTimeTest {
 	    System.setOut(originalOut);
 	    System.setErr(originalErr);
 	}*/
-	
 	// ----------------------------
 	
 	@Test(expected = NumberFormatException.class)
