@@ -49,6 +49,7 @@ public class TaxTimeTest {
 	public void InvalidNumberIncome () {
 		in = new ByteArrayInputStream("abc)2".getBytes());
 		System.setIn(in);
+		exit.expectSystemExit();
 		TaxTime.main(null);
 	}
 	
@@ -64,6 +65,7 @@ public class TaxTimeTest {
 	public void InvalidNumberDependents () {
 		in = new ByteArrayInputStream("230\r\n2.3".getBytes());
 		System.setIn(in);
+		exit.expectSystemExit();
 		TaxTime.main(null);
 	}
 	
@@ -76,10 +78,10 @@ public class TaxTimeTest {
 	}
 	
 	@Test
-	public void correctInput () {
+	public void validInput () {
 		in = new ByteArrayInputStream("7000\r\n2".getBytes());
 		System.setIn(in);
 		TaxTime.main(null);
-		assertEquals(540.0, TaxTime.taxTotal, 0.001);
+		assertEquals(640.0, TaxTime.taxTotal, 0.001);
 	}
 }
