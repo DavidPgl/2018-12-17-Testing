@@ -74,5 +74,4 @@ class LinkedListTest {
         }
         assertNull(currentNode, "should be after last element");
     }
-// added a few linkedList test cases, modified LinkedList and List interface to be behaving correctly, added LinkedListException when reversing empty lists
 }
