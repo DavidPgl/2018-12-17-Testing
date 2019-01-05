@@ -47,6 +47,7 @@ public class TaxTimeTest {
 	
 	@Test(expected = NumberFormatException.class)
 	public void InvalidNumberIncome () {
+		// idea from: https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
 		in = new ByteArrayInputStream("abc)2".getBytes());
 		System.setIn(in);
 		exit.expectSystemExit();
