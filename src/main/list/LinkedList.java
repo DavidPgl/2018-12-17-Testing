@@ -11,15 +11,13 @@ class LinkedList implements List {
 
     @Override
     public boolean delete(String data) {
+        if (getFirst() == null) return false;
         Node currentNode = getFirst();
         Node lastNode;
-        try {
-	        if(currentNode.data().equals(data)) {
-	            first = currentNode.next();
-	            return true;
-	        }
-        } catch (NullPointerException e) {
-        	return false;
+
+        if (currentNode.data().equals(data)) {
+            first = currentNode.next();
+            return true;
         }
         lastNode = currentNode;
         while ((currentNode = currentNode.next()) != null) {
@@ -38,16 +36,14 @@ class LinkedList implements List {
     }
 
     @Override
-    public void reverse () throws LinkedListException {
-    	Node tempFirst;
-    	try {
-    		tempFirst = new Node(this.first.data(), null);
-    	} catch (NullPointerException e) {
-    		throw new LinkedListException("Cannot reverse an empty list.");
-    	}
+    public void reverse() {
+        Node tempFirst;
+        if (getFirst() == null) return;
+        tempFirst = new Node(this.first.data(), null);
+
         Node currentNode = this.first;
-        while ((currentNode = currentNode.next()) != null){
-            tempFirst = new Node(currentNode.data(),tempFirst);
+        while ((currentNode = currentNode.next()) != null) {
+            tempFirst = new Node(currentNode.data(), tempFirst);
         }
         this.first = tempFirst;
     }

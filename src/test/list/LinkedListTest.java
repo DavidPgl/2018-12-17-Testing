@@ -52,7 +52,7 @@ class LinkedListTest {
     }
 
     @Test
-    void reverseList() throws LinkedListException {
+    void reverseList() {
     	setUp();
         linkedList.reverse();
         assertListShouldBe(linkedList, new String[]{"3", "2", "1"});
@@ -61,7 +61,7 @@ class LinkedListTest {
     @Test
     void reverseEmpty() {
     	linkedList = new LinkedList();
-        assertThrows(LinkedListException.class, () -> { linkedList.reverse(); });
+        assertListShouldBe(linkedList, new String[]{});
     }
 
     /*------------------------------------------------------------------------------------------------------------*/
